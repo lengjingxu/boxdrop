@@ -1,9 +1,13 @@
 <?php
-$fileurl=  $_POST['dropurl']; 
+$fileurl=  "https://dl.dropboxusercontent.com/1/view/pnadlale8qo0122/MBA E buiness/Droit/DroitE-Business.docx"; 
 
-$filename= $_POST['filename'];
+$filename= substr($fileurl,strripos($fileurl,"/")+1);
 
-    $fp_output = fopen('./'."$filename", 'w');
+
+
+
+  
+    $fp_output = fopen('./'.$filename, 'w');
     $ch = curl_init($fileurl);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
@@ -11,7 +15,8 @@ $filename= $_POST['filename'];
     curl_exec($ch);
     curl_close($ch);  
 	
- echo "$filename";
-echo "<br>";
-echo "$fileurl";
+	
+	
+	
+ 
 ?>
